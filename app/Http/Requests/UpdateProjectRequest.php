@@ -37,11 +37,13 @@ class UpdateProjectRequest extends FormRequest
                 'string',
                 'max:150',
                 // Indico quale sia il campo unico ed il valore da ignorare
-                Rule::unique('projects', 'name')->ignore($this->projects)
+                Rule::unique('projects', 'name')->ignore($this->project)
             ],
             'description' => 'nullable|string',
             'client' => 'required|string|max:100',
-            'url' => 'nullable|url'
+            'url' => 'nullable|url',
+            // La FK 'type_id' deve combaciare con gli 'id' (PK) presenti nella Tabella 'Types'
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 }
