@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // Attraverso il metodo 'call' posso elencare (in un array) tutti i Seeder da eseguire
+        $this->call([
+            UserSeeder::class,
+            ProjectSeeder::class
+        ]);
     }
 }
