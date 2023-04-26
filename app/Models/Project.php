@@ -18,4 +18,11 @@ class Project extends Model
         'client',
         'url'
     ];
+
+    // Indico una Relazione: Project(s) [N:1] Type, cioe' un Progetto puo' avere una sola Tipologia 
+    public function type()
+    {
+
+        return $this->belongsTo(Type::class);
+    }
 }
