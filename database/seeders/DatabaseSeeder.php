@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // Attraverso il metodo 'call' posso elencare (in un array) tutti i Seeder da eseguire
         $this->call([
             UserSeeder::class,
+            TypeSeeder::class,
             ProjectSeeder::class
         ]);
     }
