@@ -16,7 +16,8 @@ class Project extends Model
         'slug',
         'description',
         'client',
-        'url'
+        'url',
+        'type_id'
     ];
 
     // Indico una Relazione: Project(s) [N:1] Type, cioe' un Progetto puo' avere una sola Tipologia 

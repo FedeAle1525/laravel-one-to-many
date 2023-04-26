@@ -33,7 +33,9 @@ class StoreProjectRequest extends FormRequest
             'name' => 'required|string|max:150|unique:projects,name',
             'description' => 'nullable|string',
             'client' => 'required|string|max:100',
-            'url' => 'nullable|url'
+            'url' => 'nullable|url',
+            // La FK 'type_id' deve combaciare con gli 'id' (PK) presenti nella Tabella 'Types'
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 }

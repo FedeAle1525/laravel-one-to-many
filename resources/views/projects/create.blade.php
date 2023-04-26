@@ -40,14 +40,14 @@
     <div class="mb-3">
       <label class="form-label">Tipologia</label>
       <div class="input-group">
-        <select class="form-select @error('type') is-invalid @enderror" name="type_id">
-          <option selected disabled>Seleziona Tipologia</option>
+        <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
+          <option selected hidden>Seleziona Tipologia</option>
           <option value="">Nessuna</option>
 
           <!-- Ciclo le varie Tipologie recuperate dalla Collection passata alla Vista nel metodo 'create' del Controller -->
           <!-- In caso di Errore seleziono il Vecchio Valore -->
           @foreach ($types as $type)
-          <option @selected( old('category_id')==$type->id) value="{{ $type->id }}"> {{ $type->name }} </option>
+          <option @selected( old('type_id')==$type->id) value="{{ $type->id }}"> {{ $type->name }} </option>
           @endforeach
 
         </select>
