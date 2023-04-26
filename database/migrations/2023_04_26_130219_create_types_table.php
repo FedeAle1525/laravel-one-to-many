@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 150)->unique();
+            // Campo Univoco generato dal Nome come riconoscimento al posto di ID
+            $table->string('slug');
             $table->timestamps();
         });
     }
