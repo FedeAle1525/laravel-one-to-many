@@ -14,6 +14,15 @@
         <div class="fw-bold">Slug</div>
         {{ $project->slug }}
       </div>
+
+      <!-- Aggiungo Budge con Nome della Tipologia -->
+      <span class="badge bg-info rounded-pill">
+        @if($project->type)
+        {{ $project->type->name}}
+        @else
+        Nessuna Tipologia
+        @endif
+      </span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
