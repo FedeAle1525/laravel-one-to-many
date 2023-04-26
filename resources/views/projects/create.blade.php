@@ -36,6 +36,29 @@
       </div>
     </div>
 
+    <!-- Select con Elenco Tipologie-->
+    <div class="mb-3">
+      <label class="form-label">Tipologia</label>
+      <div class="input-group">
+        <select class="form-select @error('type') is-invalid @enderror" name="type_id">
+          <option selected disabled>Seleziona Tipologia</option>
+          <option value="">Nessuna</option>
+
+          <!-- Ciclo le varie Tipologie recuperate dalla Collection passata alla Vista nel metodo 'create' del Controller -->
+          <!-- In caso di Errore seleziono il Vecchio Valore -->
+          @foreach ($types as $type)
+          <option @selected( old('category_id')==$type->id) value="{{ $type->id }}"> {{ $type->name }} </option>
+          @endforeach
+
+        </select>
+        @error('type_id')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+    </div>
+
     <div class="mb-3">
       <label class="form-label">Cliente</label>
       <div class="input-group">
