@@ -32,8 +32,11 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        <th scope="col">Slug</th>
+        <!-- <th scope="col">Slug</th> -->
         <th scope="col">Descrizione</th>
+
+        <!-- Aggiungo Colonna con il Nome della Tipologia -->
+        <th scope="col">Tipologia</th>
         <th scope="col">Cliente</th>
         <th scope="col">URL</th>
 
@@ -53,8 +56,13 @@
         <td>
           <a href="{{ route('projects.show', $project) }}">{{$project->name}}</a>
         </td>
-        <td>{{$project->slug}}</td>
+        <!-- <td>{{$project->slug}}</td> -->
         <td>{{$project->description}}</td>
+
+        <!-- Posso leggere il Metodo 'type()' della Relazione, come Proprietà  -->
+        <!-- Laravel farà la Query recuperando i dati della Tipologia relazionata (come Istanza) da cui recupero il 'nome'  -->
+        <!-- ATTENZIONE: Operatore Ternario per controllo valori NULLI -->
+        <td>{{ $project->type ? $project->type->name : 'Nessuna'}}</td>
         <td>{{$project->client}}</td>
         <td>{{$project->url}}</td>
 
